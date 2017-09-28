@@ -20,7 +20,7 @@ function game() {
         y2: $("#t1").position().top + $("#t1").height()
     }
 
-        var t2 = {
+    var t2 = {
         x1: $("#t2").position().left,
         x2: $("#t2").width() + $("#t2").position().left,
         y1: $("#t2").position().top,
@@ -38,7 +38,6 @@ function game() {
         moveBall();
 
     }
-
 
     // Control movement of the ball doing collision checking
     function moveBall() {
@@ -73,9 +72,10 @@ function game() {
             }
         }
 
-
-        if (ball.x + ball.speed * ball.directionX + $("#ball").width() > $("#t2").position().left) {
-            ball.directionX = -1
+        if (t2.y1 < ball.y && ball.y < t2.y2) {
+            if (ball.x + ball.speed * ball.directionX + $("#ball").width() > $("#t2").position().left) {
+                ball.directionX = -1
+            }
         }
 
         // Update ball position on X and Y axes based on speed and orientation
@@ -84,6 +84,18 @@ function game() {
 
         // Render the updated ball position
         $("#ball").css({ "left": ball.x, "top": ball.y });
+    }
+
+    var tt1 = $("tt1");
+    var directions = {};
+    var speed = 4;
+
+    if (tt1.position().top > 0 && i == 38) {
+        tt1.css("top", (tt1.position().top - speed) + "px");
+    }
+
+    if (tt1.position().top < ($("#game").height() - tt1.height()) && i == 40) {
+        tt1.css("top", (tt1.position().top + speed) + "px");
     }
 
 }

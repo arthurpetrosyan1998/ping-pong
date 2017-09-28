@@ -15,7 +15,7 @@ function menu() {
         "width": "50px",
         "height": "20px",
         "top": "20%",
-        "left":"50%",
+        "left": "50%",
         "position": "absolute"
     }).text("click").appendTo("#menu");
     button.click(function () {
